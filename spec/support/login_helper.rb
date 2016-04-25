@@ -39,6 +39,10 @@ module LoginHelper
     expect(current_path).to eq('/users/new')
     fill_in("user[name]", :with => "Walt Disney")
     find(:css, "#user_admin").set(true)
+    fill_in("user[height]", :with => "58")
+    fill_in("user[happiness]", :with => "5")
+    fill_in("user[nausea]", :with => "1")
+    fill_in("user[tickets]", :with => "150")
     click_button('Create User')
     expect(current_path).to eq('/users/1')
     expect(page).to have_content("Walt Disney")
@@ -47,7 +51,7 @@ module LoginHelper
 
   def admin_login
     @mindy = User.create(:name=>"Mindy", :happiness=>3, :nausea=>2, :tickets=>10, :height=>50)
-    @walt = User.create(:name=>"Walt Disney", :admin=>true)
+    @walt = User.create(:name=>"Walt Disney", :admin=>true, :happiness=>5, :nausea=>1)
     visit '/'
     click_link('Sign in')
     expect(current_path).to eq('/signin')

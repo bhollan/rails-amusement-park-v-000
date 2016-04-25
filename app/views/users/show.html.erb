@@ -1,0 +1,14 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+<ul>
+  <li>Name: <%= @user.name %></li>
+  <li>Mood: <%= @user.mood %></li>
+  <li>Tickets: <%= @user.tickets %></li>
+  <li>Height: <%= @user.height %></li>
+  <li><%= link_to "See attractions", attractions_path %></li>
+  <li><%= link_to "Log Out", logout_path %></li>
+  <% if @user.admin %>
+    <li>ADMIN</li>
+  <% end %>
+</ul>
+

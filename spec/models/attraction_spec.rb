@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Attraction, :type => :model do
-  before :each do 
+  before :each do
     @attraction = Attraction.create(
       :name => "Roller Coaster",
       :tickets => 5,

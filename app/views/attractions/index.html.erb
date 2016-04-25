@@ -1,0 +1,16 @@
+<h1>Attractions#index</h1>
+<p>Find me in app/views/attractions/index.html.erb</p>
+<ul>
+<% @attractions.each do |attraction| %>
+  <li>
+    <%= link_to attraction.show_string(current_user),  attraction_path(attraction) %>
+    <% if current_user.admin %>
+      <%= link_to "Edit Attraction", edit_attraction_path(attraction) %>
+      <%# <%= link_to "Delete Attraction", destroy_attraction_path(attraction) %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+<% if current_user.admin %>
+  <%= link_to "New Attraction", new_attraction_path %>
+<% end %>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Ride, :type => :model do
-  before :each do 
+  before :each do
     @attraction = Attraction.create(
       :name => "Roller Coaster",
       :tickets => 5,
@@ -46,7 +46,7 @@ RSpec.describe Ride, :type => :model do
     expect(@user.tickets).to eq(10)
     expect(@user.happiness).to eq(3)
     expect(@user.nausea).to eq(5)
-  end  
+  end
 
   it "has a method 'take_ride' that accounts for the user not being tall enough and not having enough tickets" do
     @user.update(:height => 30)
